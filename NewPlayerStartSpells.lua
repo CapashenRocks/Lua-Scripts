@@ -14,7 +14,8 @@ local function OnFirstLogin(event, player)
     end
 
     -- Custom message 
-    player:SendBroadcastMessage("The great Jerphan has granted you additional abilities!")
+    player:SendBroadcastMessage("You have been granted additional abilities!")
 end
 
 RegisterPlayerEvent(30, OnFirstLogin)
+
