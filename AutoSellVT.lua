@@ -19,7 +19,6 @@ local FLAVOR_TEXTS = {
     "A shadowy figure paid %s for %s.",
     "%s disappeared from your bags… you pocketed %s.",
     "You sold %s on the black market for %s.",
- -- Extra lines
     "Rumors spread of your sale: %s moved quietly, you gained %s.",
     "Under moonlight, %s changed hands for %s.",
     "A masked broker valued your %s at %s.",
@@ -34,7 +33,6 @@ local FAILURE_TEXTS = {
     "%s was stolen before the deal closed. Tough luck.",
     "Your shady buyer took %s and never came back.",
     "The guards raided the trade %s was confiscated, no payout.",
-    -- Extra lines
     "The deal fell apart and %s is gone, and your purse stays light.",
     "Goblin rogues intercepted %s, leaving you empty-handed.",
     "Word got out, the heat was too high — %s disappeared.",
@@ -113,5 +111,6 @@ local function OnLootItem(event, player, item, count)
 end
 
 RegisterPlayerEvent(32, OnLootItem) 
+
 
 
