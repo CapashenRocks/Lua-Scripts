@@ -1,5 +1,5 @@
 # Lua-Scripts
-Collection of Jercore lua scripts
+Collection of Jercore lua scripts (more to come, initial release)
 
 <h4>
   1. AutoSellVT<br></h4>
