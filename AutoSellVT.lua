@@ -1,4 +1,4 @@
--- Jercore's Auto Sell Gray/VT (when looting) with added failure of a lost chance and jackpot!
+-- Jercore's Auto Sell Gray/VT (when looting) with added failure of lost loot and jackpot!
 -- 97% normal transaction (always more than vendor price)
 -- 2% chance to lose the item with flavor text, 1% jackpot that pays 8x vendor price
 -- To adjust the rate to normal vendor pricing make the min and max multiplier 1.0
@@ -110,9 +110,9 @@ local function OnLootItem(event, player, item, count)
             player:ModifyMoney(payout)
         end
 
-        -- Always remove the item
         player:RemoveItem(item:GetEntry(), count)
     end
 end
 
 RegisterPlayerEvent(32, OnLootItem)
+
