@@ -12,7 +12,11 @@ Collection of Jercore lua scripts (more to come, initial release)
   
   <br><i>Note- Tested and working on 3.3.5 Azerothcore as well as some modern repacks- 10.2.7 and 11.2.0. Only repack it had an issue with so far in testing was Ashen Order that constantly crashed on looting.</i><br><br>
 
- <h4>2. NewPlayerStartSpells<br></h4>
+ <h4>2. Alternative- AutoSellVT<br></h4>
+ <i>Details:</i><br>
+ This version lowers the sale multiplier rates with a possibility to sell under vendor rate for those wanted more emersion and more real that sometimes these items would be saturated and bring in a lower price. Just a fun alternative for some that like RP.<br><br>
+
+ <h4>3. NewPlayerStartSpells<br></h4>
  <i>Details:</i><br>
  Add customized spells to new characters on first login. Current spells were for a 11.2.0 repack, change spells if testing/using with an older version.<br><br>
 
