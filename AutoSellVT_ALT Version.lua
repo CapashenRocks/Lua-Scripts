@@ -4,9 +4,6 @@
 -- Details and setting info:
 -- Automatically Sell Vendor Trash when looted in the game world
 -- Sale multiplier can be adjusted, if you want blizz-like make the min and max 1.0 and change Faulure_Chance and Jackpot_chance to 0.00
--- Chat delay added to allow looting to show in the chat window prior to the sale/flavor text
--- Sound_ID is an option to add another sound when the text fires
--- Lastly, setting enable chat to false will remove the flavor texts and just show a simple sold amount
 -- #########################################################
 
 -- #########################################################
@@ -181,4 +178,5 @@ RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
 
 print("[Black Market Auto Sell] Loaded successfully. Status: ENABLED")
+
 
