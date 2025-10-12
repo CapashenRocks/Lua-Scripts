@@ -10,7 +10,7 @@
 local NPC_ID              = 97876  -- Change to any NPC, this is a custom Goblin NPC that may not exist
 local BLACKMARKET_ENABLED = true   -- false to turn off the script
 local MIN_MULTIPLIER      = 0.85   -- Price chance under 1.0 vendor pricing= "saturated market"
-local MAX_MULTIPLIER      = 1.15   -- Price chance max over vendor standard price
+local MAX_MULTIPLIER      = 1.25   -- Price chance max over vendor standard price
 local FAILURE_CHANCE      = 0.02   -- Small chance to lose the item
 local JACKPOT_CHANCE      = 0.01   -- Demand is high, you sell at the jackpot multiplier rate!
 local JACKPOT_MULTIPLIER  = 3
@@ -175,6 +175,7 @@ RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
 
 print("[Black Market Auto Sell] Loaded successfully. Status: ENABLED")
+
 
 
 
