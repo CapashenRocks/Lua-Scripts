@@ -6,10 +6,6 @@
 -- Sale multiplier can be adjusted, if you want blizz-like make the min and max 1.0 and change Faulure_Chance and Jackpot_chance to 0.00
 -- #########################################################
 
--- #########################################################
--- Black Market Auto-Sell (Gray Items)
--- #########################################################
-
 local NPC_ID              = 97876  -- Change to any NPC, this is a custom Goblin NPC that may not exist
 local BLACKMARKET_ENABLED = true   -- false to turn off the script
 local MIN_MULTIPLIER      = 0.85   -- Price chance under 1.0 vendor pricing= "saturated market"
@@ -178,5 +174,6 @@ RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
 
 print("[Black Market Auto Sell] Loaded successfully. Status: ENABLED")
+
 
 
