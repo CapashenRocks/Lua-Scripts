@@ -10,7 +10,7 @@ Collection of Jercore lua scripts (more to come, initial release)
   
   <br>Version 2.0 added an NPC (need to change the one in the script is my custom NPC) as well as a command to toggle on/off anywhere in the game world. Updated with a configuration option to turn off the full chat messages for those that don't want to see that. 
   
-  <br><i>Note- tested and working on 3.3.5 Azerothcore as well as 10.2.7 and 11.2.0. Only repack it had an issue with so far in testing was Ashen Order.</i><br><br>
+  <br><i>Note- Tested and working on 3.3.5 Azerothcore as well as 10.2.7 and 11.2.0. Only repack it had an issue with so far in testing was Ashen Order.</i><br><br>
 
  <h4>2. NewPlayerStartSpells<br></h4>
  <i>Details:</i><br>
