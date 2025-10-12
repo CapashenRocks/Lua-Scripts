@@ -14,7 +14,7 @@ Collection of Jercore lua scripts (more to come, initial release)
 
  <h4>2. AutoSellVT- ALT Version<br></h4>
  <i>Details:</i><br>
- This version lowers the sale multiplier rates with a possibility to sell under vendor rate for those wanted more emersion and more real that sometimes these items would be saturated and bring in a lower price. Just a fun alternative for some that like RP.<br><br>
+ This version lowers the sale multiplier rates with a possibility to sell under vendor rate for those that enjoy more emersion and more real that sometimes these items would be saturated and bring in a lower price. Just a fun alternative for some that like RP.<br><br>
 
  <h4>3. NewPlayerStartSpells<br></h4>
  <i>Details:</i><br>
