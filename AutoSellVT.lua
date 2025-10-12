@@ -6,6 +6,7 @@
 -- Chat delay added to allow looting to show in the chat window prior to the sale/flavor text
 -- Sound_ID is an option to add another sound when the text fires
 -- Lastly, setting enable chat to false will remove the flavor texts and just show a simple sold amount
+-- Chat command to toggle on/off anywhere is ".bm toggle"
 -- #########################################################
 
 local NPC_ID              = 97876  -- Change to any NPC, this is my custom Goblin NPC
@@ -174,4 +175,5 @@ RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
 
 print("[Black Market Auto Sell] Loaded successfully. Status: ENABLED")
+
 
