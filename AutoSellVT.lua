@@ -1,17 +1,24 @@
--- Jercore's Auto Sell Gray/VT (when looting) with added failure of lost loot and jackpot!
--- 97% normal transaction (always more than vendor price)
--- 2% chance to lose the item with flavor text, 1% jackpot that pays 8x vendor price
--- To adjust the rate to normal vendor pricing make the min and max multiplier 1.0
--- Version 2 completed 10/1/25- added an enable chat option. True= full experience with custom texts. False= only shows what item sold for in chat.
+-- #########################################################
+-- JerCore's Black Market Auto-Sell (Gray Items)
+-- Details and setting info:
+-- Automatically Sell Vendor Trash when looted in the game world
+-- Sale multiplier can be adjusted, if you want blizz-like make the min and max 1.0 and change Faulure_Chance and Jackpot_chance to 0.00
+-- Chat delay added to allow looting to show in the chat window prior to the sale/flavor text
+-- Sound_ID is an option to add another sound when the text fires
+-- Lastly, setting enable chat to false will remove the flavor texts and just show a simple sold amount
+-- #########################################################
 
-local MIN_MULTIPLIER     = 1.2
-local MAX_MULTIPLIER     = 2.4
-local FAILURE_CHANCE     = 0.02   -- 2%
-local JACKPOT_CHANCE     = 0.01   -- 1%
-local JACKPOT_MULTIPLIER = 8      -- 8x payout
-local ENABLE_CHAT        = false   -- true will give full flavor expeirience of sold, stolen, jackpot...false will just show the amount the VT sold for
+local NPC_ID              = 97876  -- Change to any NPC
+local BLACKMARKET_ENABLED = true  
+local MIN_MULTIPLIER      = 1.2
+local MAX_MULTIPLIER      = 2.4
+local FAILURE_CHANCE      = 0.02   -- 2%
+local JACKPOT_CHANCE      = 0.01   -- 1%
+local JACKPOT_MULTIPLIER  = 8      -- 8x payout
+local ENABLE_CHAT         = true   -- true = flavor text; false = simple payout line
+local CHAT_DELAY_MS       = 1000   -- 1-second delay on flavor texts
+local SOUND_ID            = 0      -- optional sound if want something other than the gold sound (default already on)
 
--- Success
 local FLAVOR_TEXTS = {
     "%s was fenced for %s.",
     "%s found a shady buyer and sold for %s.",
@@ -23,7 +30,6 @@ local FLAVOR_TEXTS = {
     "You sold %s on the black market for %s."
 }
 
--- Failure 
 local FAILURE_TEXTS = {
     "Your contact vanished with %s… no gold this time.",
     "The black market deal for %s went sour. You got nothing.",
@@ -32,23 +38,22 @@ local FAILURE_TEXTS = {
     "The guards raided the trade — %s confiscated, no payout."
 }
 
--- Jackpot 
 local JACKPOT_TEXTS = {
     "WHOA! A desperate collector paid a fortune: %s fetched %s!",
     "Incredible luck! You scored a massive haul selling %s for %s!",
     "A bidding war broke out on the black market — %s sold for %s!"
 }
 
+-- DO NOT EDIT below this line unless you know what you are doing :)
+
 local function RandomFloat(min, max)
     return min + (max - min) * math.random()
 end
 
--- Helper: format copper into g/s/c
 local function FormatMoney(copper)
     local gold = math.floor(copper / 10000)
     local silver = math.floor((copper % 10000) / 100)
     local c = copper % 100
-
     local parts = {}
     if gold > 0 then table.insert(parts, gold .. " Gold") end
     if silver > 0 then table.insert(parts, silver .. " Silver") end
@@ -58,18 +63,28 @@ local function FormatMoney(copper)
 end
 
 local function SendTransactionInformation(player, item, count, finalPrice)
-    local link = string.format("|cff9d9d9d|Hitem:%d::::::::80:::::|h[%s]|h|r",
-        item:GetEntry(), item:GetName())
-    if count > 1 then
-        link = link .. "x" .. count
+    local link = string.format("|cff9d9d9d|Hitem:%d::::::::80:::::|h[%s]|h|r", item:GetEntry(), item:GetName())
+    if count > 1 then link = link .. "x" .. count end
+
+    local function DelayedFeedback(msg)
+        local guid = player:GetGUIDLow()
+        CreateLuaEvent(function()
+            local p = GetPlayerByGUID(guid)
+            if p then
+                if SOUND_ID and SOUND_ID > 0 then
+                    p:PlayDirectSound(SOUND_ID)
+                end
+                p:SendBroadcastMessage(msg)
+            end
+        end, CHAT_DELAY_MS, 1)
     end
 
     if math.random() < FAILURE_CHANCE then
         if ENABLE_CHAT then
-            local failText = FAILURE_TEXTS[math.random(1, #FAILURE_TEXTS)]
-            player:SendBroadcastMessage("|cffff2020[Black Market]|r " .. string.format(failText, link))
+            local failText = FAILURE_TEXTS[math.random(#FAILURE_TEXTS)]
+            DelayedFeedback("|cffff2020[Black Market]|r " .. string.format(failText, link))
         else
-            player:SendBroadcastMessage("You acquire nothing.")
+            DelayedFeedback("You acquire nothing.")
         end
         return 0
     end
@@ -77,26 +92,28 @@ local function SendTransactionInformation(player, item, count, finalPrice)
     if math.random() < JACKPOT_CHANCE then
         local jackpotValue = finalPrice * JACKPOT_MULTIPLIER
         if ENABLE_CHAT then
-            local jackpotText = JACKPOT_TEXTS[math.random(1, #JACKPOT_TEXTS)]
-            player:SendBroadcastMessage("|cffffd700[BLACK MARKET JACKPOT]|r " ..
+            local jackpotText = JACKPOT_TEXTS[math.random(#JACKPOT_TEXTS)]
+            DelayedFeedback("|cffffd700[BLACK MARKET JACKPOT]|r " ..
                 string.format(jackpotText, link, FormatMoney(jackpotValue)))
         else
-            player:SendBroadcastMessage("You acquire " .. FormatMoney(jackpotValue) .. ".")
+            DelayedFeedback("You acquire " .. FormatMoney(jackpotValue) .. ".")
         end
         return jackpotValue
     end
 
     if ENABLE_CHAT then
-        local msg = FLAVOR_TEXTS[math.random(1, #FLAVOR_TEXTS)]
-        player:SendBroadcastMessage("|cff20ff20[Black Market]|r " ..
+        local msg = FLAVOR_TEXTS[math.random(#FLAVOR_TEXTS)]
+        DelayedFeedback("|cff20ff20[Black Market]|r " ..
             string.format(msg, link, FormatMoney(finalPrice)))
     else
-        player:SendBroadcastMessage("You acquire " .. FormatMoney(finalPrice) .. ".")
+        DelayedFeedback("You acquire " .. FormatMoney(finalPrice) .. ".")
     end
+
     return finalPrice
 end
 
 local function OnLootItem(event, player, item, count)
+    if not BLACKMARKET_ENABLED then return end
     if not item then return end
     if item:GetQuality() == 0 then -- gray items only
         local basePrice = item:GetSellPrice() * count
@@ -113,6 +130,47 @@ local function OnLootItem(event, player, item, count)
         player:RemoveItem(item:GetEntry(), count)
     end
 end
-
 RegisterPlayerEvent(32, OnLootItem)
 
+local function ToggleBlackMarket(event, player, command)
+    if command:lower() == "bm toggle" then
+        BLACKMARKET_ENABLED = not BLACKMARKET_ENABLED
+        local status = BLACKMARKET_ENABLED and "|cff20ff20ENABLED|r" or "|cffff2020DISABLED|r"
+        player:SendBroadcastMessage("|cff00ccff[Black Market]|r Auto-sell is now " .. status .. ".")
+        return false -- prevents default command handling
+    end
+end
+RegisterPlayerEvent(42, ToggleBlackMarket) 
+
+local function OnGossipHello(event, player, creature)
+    player:GossipClearMenu()   
+    local statusText = BLACKMARKET_ENABLED and "|cff20ff20ENABLED|r" or "|cffff2020DISABLED|r"
+
+    creature:SendUnitWhisper("The Black Market when enabled will have traders automatically buy your poor quality items when looted!", 0, player)
+    creature:SendUnitWhisper("Black Market Auto-Sell is currently " .. (BLACKMARKET_ENABLED and "enabled." or "disabled."), 0, player)
+   -- player:GossipMenuAddItem(0, "Black Market Auto-Sell is currently: " .. statusText, 0, 0)
+    player:GossipMenuAddItem(0, "Enable Black Market Auto-Sell", 0, 1)
+    player:GossipMenuAddItem(0, "Disable Black Market Auto-Sell", 0, 2)
+    player:GossipMenuAddItem(0, "Close", 0, 3)
+    player:GossipSendMenu(1, creature)
+end
+
+local function OnGossipSelect(event, player, creature, sender, intid)
+    if intid == 1 then
+        BLACKMARKET_ENABLED = true
+        player:SendBroadcastMessage("|cff20ff20[Black Market]|r Auto-Sell ENABLED.")
+        creature:SendUnitWhisper("The Black Market traders are at your disposal!", 0, player)
+        creature:SendUnitSay("Thanks for your future business!", 0, player)
+    elseif intid == 2 then
+        BLACKMARKET_ENABLED = false
+        player:SendBroadcastMessage("|cffff2020[Black Market]|r Auto-Sell DISABLED.")
+        creature:SendUnitWhisper("You have opted out of the Black Market, traders will not bother you.", 0, player)
+        creature:SendUnitSay("See me again if you change your mind.", 0, player)
+    end
+    player:GossipComplete()
+end
+
+RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
+RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
+
+print("[Black Market Auto Sell] Loaded successfully. Status: ENABLED")
