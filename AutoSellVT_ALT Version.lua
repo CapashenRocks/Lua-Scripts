@@ -15,7 +15,7 @@ local JACKPOT_CHANCE      = 0.01   -- Demand is high, you sell at the jackpot mu
 local JACKPOT_MULTIPLIER  = 3
 local ENABLE_CHAT         = true   -- false to turn off all flavor texts and only see the sale amount
 local CHAT_DELAY_MS       = 1000   -- Chat delay added when tested aoe_loot modules in Azerothcore, 3000 seemed best in that scenario
-local SOUND_ID            = 0      -- optional sound when flavor text fires, 0 plays no sound
+local SOUND_ID            = 0      -- optional sound when flavor text fires, 0 plays no additional sounds
 
 local FLAVOR_TEXTS = {
     "%s was fenced for %s.",
@@ -174,6 +174,7 @@ RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
 
 print("[Black Market Auto Sell] Loaded successfully. Status: ENABLED")
+
 
 
 
