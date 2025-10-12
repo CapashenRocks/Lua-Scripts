@@ -8,7 +8,7 @@
 -- Lastly, setting enable chat to false will remove the flavor texts and just show a simple sold amount
 -- #########################################################
 
-local NPC_ID              = 97876  -- Change to any NPC
+local NPC_ID              = 97876  -- Change to any NPC, this is my custom Goblin NPC
 local BLACKMARKET_ENABLED = true  
 local MIN_MULTIPLIER      = 1.2
 local MAX_MULTIPLIER      = 2.4
@@ -174,3 +174,4 @@ RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
 
 print("[Black Market Auto Sell] Loaded successfully. Status: ENABLED")
+
