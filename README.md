@@ -1,8 +1,12 @@
 # Lua-Scripts
 Collection of Jercore lua scripts (more to come, initial release)
 
+ <h4>ApplyWorldBuff_SpecificExpire<br></h4>
+ <i>Details:</i><br>
+ Apply world buff at character login that will expire at a specific date and no loger apply it. This uses a custom spell I made for Fall Celebration (this was an xp buff) and thus needs to be edited to your spell.<br><br>
+
 <h4>
-  1. AutoSellVT<br></h4>
+  AutoSellVT<br></h4>
  <i>Details:</i><br>
   Ported from my C++ azerothcore custom script. This script upon looting any gray items will auto sell them at a set multiplier rate above standard vendor pricing (unless the multiplier is adjusted to 1.0). 
   
@@ -12,11 +16,11 @@ Collection of Jercore lua scripts (more to come, initial release)
   
   <br><i>Note- Tested and working on 3.3.5 Azerothcore as well as some modern repacks- 10.2.7 and 11.2.0. Only repack it had an issue with so far in testing was Ashen Order that constantly crashed on looting.</i><br><br>
 
- <h4>2. AutoSellVT- ALT Version<br></h4>
+ <h4>AutoSellVT- ALT Version<br></h4>
  <i>Details:</i><br>
  This version lowers the sale multiplier rates with a possibility to sell under vendor rate for those that enjoy emersion and a more real feel where sometimes these items would be saturated in the market and sell for a lower price. Just a fun alternative for some that like RP.<br><br>
 
- <h4>3. NewPlayerStartSpells<br></h4>
+ <h4>NewPlayerStartSpells<br></h4>
  <i>Details:</i><br>
  Add customized spells to new characters on first login. Current spells were for a 11.2.0 repack, change spells if testing/using with an older version.<br><br>
 
