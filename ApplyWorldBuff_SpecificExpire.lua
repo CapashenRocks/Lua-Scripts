@@ -1,5 +1,5 @@
 -- #####################################################
--- JerCore's World Buff: Applied only during specific time period
+-- Jercore's World Buff: Applied only during specific time period
 -- Fall Celebration
 -- Applies spell 957353 at login until 10/31/2025
 -- 957353 is a custom spell, change to your spell!
@@ -57,4 +57,5 @@ local function CheckExpiration()
 end
 
 RegisterPlayerEvent(3, OnLogin)            
+
 
