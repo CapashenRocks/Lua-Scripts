@@ -1,7 +1,11 @@
+-- #########################################################
+-- JerCore's Teach New Player Spells
+-- Some cores seems to have issues with playercreateinfo_spell_custom so this is a workaround and a quicker to setup
 -- Teach certain spells only on First Login
 -- Reasoning- To add some flavor and make things easier on a smaller low-pop server
 -- Description: When a new character enters the world for the first time, they will automatically learn spells identified below.
 -- A one-time broadcast message will also be sent if custom message is setup/defined.
+-- #########################################################
 
 -- Add or remove spells to learn that spell on first character login
 local SPELLS_TO_LEARN = {455532, 20608, 33389}
@@ -19,5 +23,6 @@ local function OnFirstLogin(event, player)
 end
 
 RegisterPlayerEvent(30, OnFirstLogin)
+
 
 
