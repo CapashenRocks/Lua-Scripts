@@ -51,6 +51,9 @@ local JACKPOT_TEXTS = {
     "A bidding war broke out on the black market — %s sold for %s!"
 }
 
+-- DO NOT EDIT below this line unless you know what you are doing :)
+
+
 local function RandomFloat(min, max)
     return min + (max - min) * math.random()
 end
@@ -175,6 +178,7 @@ RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
 
 print("[Black Market Auto Sell] Loaded successfully. Status: ENABLED")
+
 
 
 
