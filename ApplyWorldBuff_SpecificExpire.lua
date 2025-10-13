@@ -6,6 +6,7 @@
 -- #####################################################
 
 local SPELL_ID = 957353
+-- Change message to apply to your buff and note- this text color is orange
 local MESSAGE = "|cffffa500Fall Celebration is now active!|r"
 
 -- Expiration timestamp
@@ -55,5 +56,5 @@ local function CheckExpiration()
     end
 end
 
-RegisterPlayerEvent(3, OnLogin)            -- 3 = OnLogin
---CreateLuaEvent(CheckExpiration, 60000, 0)  -- check every 60 seconds
+RegisterPlayerEvent(3, OnLogin)            
+
