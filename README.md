@@ -8,7 +8,7 @@ Collection of Jercore lua scripts. Most of these are used on Azerothcore, but ha
 <h4>
   AutoSellVT<br></h4>
  <i>Details:</i><br>
-  Ported from my C++ azerothcore custom script. This script upon looting any gray items will auto sell them at a set multiplier rate above standard vendor pricing (unless the multiplier is adjusted to 1.0). 
+  Ported from my C++ Azerothcore custom script. This script upon looting any gray items will auto sell them at a set multiplier rate above standard vendor pricing (unless the multiplier is adjusted to 1.0). 
   
   <br>There is a small chance this fails and player loses the item, but also a chance for a huge jackpot sale that will more than mitigate any lost items, in theory. Designed to add fun and flavor. 
   
