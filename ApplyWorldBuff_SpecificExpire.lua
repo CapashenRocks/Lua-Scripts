@@ -5,6 +5,7 @@
 -- 957353 is a custom spell, change to your spell!
 -- #####################################################
 
+local ENABLE_EVENT = true
 local SPELL_ID = 957353
 -- Change message to apply to your buff and note- this text color is orange
 local MESSAGE = "|cffffa500Fall Celebration is now active!|r"
@@ -22,6 +23,10 @@ local EXPIRATION = os.time({
 local removalDone = true
 
 local function OnLogin(event, player)
+  if not ENABLE_EVENT then
+        return
+    end
+   
     local now = os.time()
 
     if now < EXPIRATION then
@@ -57,5 +62,6 @@ local function CheckExpiration()
 end
 
 RegisterPlayerEvent(3, OnLogin)            
+
 
 
