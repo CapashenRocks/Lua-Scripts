@@ -34,7 +34,7 @@ local LOWMARKET_TEXTS = {
     "Buyers are tired of %s, so you settle for only %s.",
     "An oversupply drove prices down; %s went for just %s.",
     "Too many sellers today... %s moved quietly for %s.",
-    "Demand is low; you offloaded %s at a loss for %s."
+    "Demand is low; you offloaded %s for only %s."
 }
 
 local FAILURE_TEXTS = {
@@ -178,6 +178,7 @@ RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
 
 print("[Black Market Auto Sell] Loaded successfully. Status: ENABLED")
+
 
 
 
