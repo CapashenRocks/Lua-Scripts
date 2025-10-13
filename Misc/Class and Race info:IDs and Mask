@@ -70,8 +70,8 @@ Racemask
 128- Troll
 256- Goblin
 512- Blood Elf
-1024- Draenei/High Elf
-All= 2047, no goblin=1791, Alliance=1101, Horde=690 (946 with goblin)
+1024- Draenei
+Racemask All=> 2047, no goblin=1791. Alliance=1101, Horde=690 (946 with goblin)
 ~~~~~
 2048- Fel Orc
 4096- Naga
