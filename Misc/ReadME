@@ -1,1 +1,85 @@
+3.3.5- Classmask/Racemask/ClassID/RaceID
 
+Classmask
+
+Warrior: 1 
+Paladin: 2 
+Hunter: 4 
+Rogue: 8 
+Priest: 16 
+Death Knight: 32
+Shaman: 64 
+Mage: 128 
+Warlock: 256 
+Druid: 1024 
+
+All(mask#)= 1535
+
+Class IDs
+
+Warrior: 1
+Pally: 2
+Hunter: 3
+Rogue: 4
+Priest: 5
+DK: 6
+Shaman: 7
+Mage: 8
+Warlock: 9
+Druid: 11
+Monk: 10*
+DH: 12**
+Evoker: 13***
+
+*Added in Pandaria
+**Added in Legion
+***Added in Dragonflight
+
+RaceIDs
+1- Human		
+2- Orc			
+3- Dwarf	
+4- NE			
+5- Scourge		
+6- Tauren		
+7- Gnome		
+8- Troll		
+9- Goblin		
+10- Blood Elf		
+11- Draenei
+~~~~
+12- Fel Orc
+13- Naga
+14- Broken
+15- Skeleton
+16- Vrykul
+17- Tuskarr
+18- Forest Troll
+19- Taunka
+20- Northrend Skeleton
+21- Ice Troll		
+
+Racemask
+1- Human
+2- Orc
+4- Dwarf
+8- Night Elf
+16- Undead
+32- Tauren
+64- Gnome
+128- Troll
+256- Goblin
+512- Blood Elf
+1024- Draenei/High Elf
+All= 2047, no goblin=1791, Alliance=1101, Horde=690 (946 with goblin)
+~~~~~
+2048- Fel Orc
+4096- Naga
+8192- Broken
+16384- Skeleton
+32768- Vrykul
+65536- Tuskarr
+131072- Forest Troll
+262144- Taunka
+524288- Northern Skeleton
+1048576- Ice Troll
