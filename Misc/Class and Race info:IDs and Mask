@@ -13,12 +13,12 @@ Mage: 128
 Warlock: 256 
 Druid: 1024 
 
-All(mask#)= 1535
+All classes(mask#)= 1535
 
 Class IDs
 
 Warrior: 1
-Pally: 2
+Paladin: 2
 Hunter: 3
 Rogue: 4
 Priest: 5
@@ -28,18 +28,18 @@ Mage: 8
 Warlock: 9
 Druid: 11
 Monk: 10*
-DH: 12**
+Demon Hunter: 12**
 Evoker: 13***
 
-*Added in Pandaria
-**Added in Legion
-***Added in Dragonflight
+*Added in Pandaria (5.0)
+**Added in Legion (7.0)
+***Added in Dragonflight (10.0)
 
 RaceIDs
 1- Human		
 2- Orc			
 3- Dwarf	
-4- NE			
+4- Night Elf		
 5- Scourge		
 6- Tauren		
 7- Gnome		
