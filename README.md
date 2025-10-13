@@ -1,5 +1,5 @@
 # Lua-Scripts
-Collection of JerCore lua scripts. Most of these are used on Azerothcore, but have also been tested on modern repacks (lightly).
+Collection of Jercore lua scripts. Most of these are used on Azerothcore, but have also been tested on modern repacks (lightly).
 
  <h4>ApplyWorldBuff_SpecificExpire<br></h4>
  <i>Details:</i><br>
