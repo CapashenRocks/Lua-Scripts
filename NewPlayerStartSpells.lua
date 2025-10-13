@@ -1,5 +1,5 @@
 -- #########################################################
--- JerCore's Teach New Player Spells
+-- Jercore's Teach New Player Spells
 -- Some cores seems to have issues with playercreateinfo_spell_custom so this is a workaround and a quicker to setup
 -- Teach certain spells only on First Login
 -- Reasoning- To add some flavor and make things easier on a smaller low-pop server
@@ -23,6 +23,7 @@ local function OnFirstLogin(event, player)
 end
 
 RegisterPlayerEvent(30, OnFirstLogin)
+
 
 
 
