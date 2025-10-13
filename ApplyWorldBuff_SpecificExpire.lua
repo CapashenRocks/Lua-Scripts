@@ -10,7 +10,6 @@ local SPELL_ID = 957353
 -- Change message to apply to your buff and note- this text color is orange
 local MESSAGE = "|cffffa500Fall Celebration is now active!|r"
 
--- Expiration timestamp
 local EXPIRATION = os.time({
     year = 2025,
     month = 11,
@@ -62,6 +61,7 @@ local function CheckExpiration()
 end
 
 RegisterPlayerEvent(3, OnLogin)            
+
 
 
 
