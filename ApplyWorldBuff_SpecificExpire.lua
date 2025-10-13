@@ -56,11 +56,12 @@ local function CheckExpiration()
             end
         end
         removalDone = true
-        SendWorldMessage("Fall Celebration buff has ended.")
+        SendWorldMessage("Fall Celebration has ended.")
     end
 end
 
 RegisterPlayerEvent(3, OnLogin)            
+
 
 
 
