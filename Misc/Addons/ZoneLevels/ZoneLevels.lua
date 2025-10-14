@@ -65,7 +65,6 @@ local ZoneLevels = {
     ["Blade's Edge Mountains"]= "65–68",
     ["Netherstorm"]          = "67–70",
     ["Shadowmoon Valley"]    = "67–70",
- --   ["Shattrath City"]       = "60–70",
 
  -- NORTHREND
     ["Borean Tundra"]        = "68–72",
@@ -78,7 +77,6 @@ local ZoneLevels = {
     ["The Storm Peaks"]      = "77–80",
     ["Icecrown"]             = "77–80",
     ["Wintergrasp"]          = "77–80",
-   -- ["Dalaran"]            = "70–80",
     ["Utgarde Keep"]         = "68-72",
 }
 
@@ -127,4 +125,5 @@ function WorldMapFrameAreaLabel:SetText(name)
 end
 
 WorldMapFrame:HookScript("OnShow", OnMapOpen)
+
 
