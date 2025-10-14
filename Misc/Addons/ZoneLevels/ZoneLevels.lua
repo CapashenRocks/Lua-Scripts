@@ -126,8 +126,5 @@ function WorldMapFrameAreaLabel:SetText(name)
     oldSetText(self, name)
 end
 
-local function OnMapOpen()
-    DEFAULT_CHAT_FRAME:AddMessage("|cffffff00[ZoneLevels]|r Difficulty colors: |cff40c040Green|r easy, |cffffff00Yellow|r even, |cffff8040Orange|r hard, |cffff2020Red|r very hard.")
-end
-
 WorldMapFrame:HookScript("OnShow", OnMapOpen)
+
