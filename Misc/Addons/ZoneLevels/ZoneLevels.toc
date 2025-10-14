@@ -1,0 +1,9 @@
+## Interface: 30300
+## Title: Zone Levels
+## Notes: Adds level ranges to the World Map 
+## Author: Jercore
+## Version: 1.0
+## DefaultState: Enabled
+## LoadOnDemand: 0
+
+ZoneLevels.lua
