@@ -3,7 +3,7 @@
 -- ALT Version with under vendor sale chance with updated flavor texts
 -- Details and setting info:
 -- Automatically Sell Vendor Trash when looted in the game world
--- Sale multiplier can be adjusted, if you want blizz-like make the min and max 1.0 and change Faulure_Chance and Jackpot_chance to 0.00
+-- Sale multiplier can be adjusted, if you want blizz-like make the min and max 1.0 and change Failure_Chance and Jackpot_chance to 0.00
 -- The chat command if player would rather toggle anywhere in the game world is ".bm toggle" 
 -- #########################################################
 
@@ -178,6 +178,7 @@ RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
 
 print("[Black Market Auto Sell] Loaded successfully. Status: ENABLED")
+
 
 
 
