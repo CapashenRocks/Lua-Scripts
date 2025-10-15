@@ -3,7 +3,7 @@ Collection of Jercore lua scripts. Most of these are used on Azerothcore, but ha
 
  <h4>ApplyWorldBuff_SpecificExpire<br></h4>
  <i>Details:</i><br>
- Apply world buff at character login that will expire at a specific date and no loger apply it. This uses a custom spell I made for Fall Celebration (this was an xp buff) and thus needs to be edited to your spell.<br><br>
+ Apply world buff at character login that will expire at a specific date and no loger apply it. This uses a custom spell I made called Fall Celebration (this was an xp buff) and thus needs to be edited to your spell.<br><br>
 
 <h4>
   AutoSellVT<br></h4>
