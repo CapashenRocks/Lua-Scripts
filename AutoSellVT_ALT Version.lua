@@ -1,5 +1,5 @@
 -- #########################################################
--- Jercore's Black Market Auto-Sell (Gray Items)
+-- JerCore's Black Market Auto-Sell (Gray Items)
 -- ALT Version with under vendor sale chance with updated flavor texts
 -- Details and setting info:
 -- Automatically Sell Vendor Trash when looted in the game world
@@ -178,6 +178,7 @@ RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
 
 print("[Black Market Auto Sell] Loaded successfully. Status: ENABLED")
+
 
 
 
