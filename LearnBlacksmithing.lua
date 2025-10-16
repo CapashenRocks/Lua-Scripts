@@ -1,5 +1,5 @@
 -- #####################################################
--- JerCore's learn blacksmithing for 11.2.5
+-- JerCore's learn Blacksmithing for 11.2.5
 -- Teaches all Blacksmithing ranks
 -- Command .prof learn blacksmithing
 -- #####################################################
@@ -46,3 +46,4 @@ local function OnCommand(event, player, command)
 end
 
 RegisterPlayerEvent(42, OnCommand)
+
