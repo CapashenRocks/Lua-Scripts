@@ -1,7 +1,0 @@
-## Interface: 30300
-## Title: JerCore's Tool Tip Item Number
-## Notes: Adds item level to item tooltips
-## Author: JerCore
-## Version: 2.0
-
-JerCore's Tool Tip Item Number.lua
