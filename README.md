@@ -18,7 +18,7 @@ Collection of JerCore lua scripts and addons (in the Misc folder). Most of these
  <ins>Details:</ins>
  This version lowers the sale multiplier rates with a possibility to sell under vendor rate for those that enjoy emersion and a more real feel where sometimes these items would be saturated in the market and sell for a lower price. Just a fun alternative for some that like RP.<br><br>
 
-#### 3. LearnBlacksmithing- for War Within
+#### 3. LearnBlacksmithing- for War Within ![The War Within Logo](https://github.com/CapashenRocks/Lua-Scripts/blob/main/Misc/Art/tww.png)
 <ins>Details:</ins>
 Quick lua script that adds a command in game to learn blacksmithing and all ranks. It was written for a War Within repack that had some profession issues with Blacksmithing. It also correctly teaches BFA ranks based on player's faction. <br><br>
  
