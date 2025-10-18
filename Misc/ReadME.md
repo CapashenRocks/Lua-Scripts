@@ -1,9 +1,13 @@
-<h3>Misc Files</h3>
+# Misc Files
 
 Jercore misc files- mostly a space for information I don't want to lose, but may not be beneficial for others.
 <br><br>
-<h5>File: Class and Race info</h5>
+
+## File: Class and Race info
 Contains from 3.3.5 the ClassID, RaceID, Classmask, and Racemask information pulled from the DBCs.
 <br><br>
-<h5>AddOn</h5>
-ZoneLevels: Adds Zone level ranges to the world map with level text color coded based on difficulty to player (similar to later expansions- Green, Yellow, Red)
+
+## AddOns
+- <ins>JerCore's Tool Tip Item Number</ins>: This addon adds the item number to the tool tips of any item. The .toc of this is for 3.3.5, but details in the lua file on updating that.
+<br><br>
+- <ins>ZoneLevels</ins>: Adds Zone level ranges to the world map with level text color coded based on difficulty to player (similar to later expansions- Green, Yellow, Red)
