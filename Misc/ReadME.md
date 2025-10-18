@@ -1,6 +1,6 @@
 # Misc Files
 
-Jercore misc files- mostly a space for information I don't want to lose, but may not be beneficial for others.
+JerCore misc files- mostly a space for information I don't want to lose, but may not be beneficial for others.
 <br><br>
 
 ## File: Class and Race info ![Wrath Icon](https://github.com/CapashenRocks/Lua-Scripts/blob/main/Misc/Art/wrath.png)
