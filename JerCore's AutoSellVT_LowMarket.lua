@@ -2,7 +2,7 @@
 --[[
 JerCore's Black Market Auto-Sell (Gray Items)
 
-Alternative Version with sales under vendor pricing chance with updated flavor texts
+Alternative Version with small chance for sales under vendor pricing updated with additional flavor texts
 Type .bm toggle in chat to toggle function on/off without talking to the NPC
 
 Additional flavor texts can be added below
@@ -187,4 +187,5 @@ RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
 
 print("[JerCore's Black Market: Auto Sell VT] Loaded successfully. Status: ENABLED")
+
 
