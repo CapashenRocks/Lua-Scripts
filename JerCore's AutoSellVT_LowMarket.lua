@@ -1,15 +1,16 @@
-
 --[[
 JerCore's Black Market Auto-Sell (Gray Items)
+v2.0- Added Failure chance to reduce the RNG effect of too many sales under 1.0.
 
-Alternative Version with small chance for sales under vendor pricing updated with additional flavor texts
+Alternative Version with sales under vendor pricing chance with updated flavor texts
 Type .bm toggle in chat to toggle function on/off without talking to the NPC
 
+The [Black Market] chat color idicates the sale: green= above vendor pricing, orange=below vendor, red=item lost/confiscated, Gold/yellow=jackpot
 Additional flavor texts can be added below
 
 Details and setting info:
 Automatically Sell Vendor Trash when looted in the game world
-Sale multiplier can be adjusted, if you want blizz-like make the min and max 1.0 and change Faulure_Chance and Jackpot_chance to 0.00
+Sale multiplier can be adjusted, if you want blizz-like make the min and max 1.0, change Faulure_Chance and Jackpot_chance to 0.00 and enable_chat = false
 Chat delay=> This was added to allow looting to show in the chat window prior to the sale/flavor text 
 Sound_ID is an option to add another/custom sound when the text fires
 Lastly, setting enable chat to false will remove the flavor texts and just show a simple sold amount
@@ -17,8 +18,9 @@ Lastly, setting enable chat to false will remove the flavor texts and just show 
 
 local NPC_ID              = 97876  -- Change to any NPC, this is a custom Goblin NPC that may not exist on non-JerCore servers. NPC will allow you to turn it on or off
 local BLACKMARKET_ENABLED = true   -- false to turn off the script
-local MIN_MULTIPLIER      = 0.90   -- Price chance under 1.0 vendor pricing. Selling under 1.0 is meant to mimic a saturated market 
-local MAX_MULTIPLIER      = 1.20   -- Price chance max over vendor standard price (i.e. vendor price 1 silver, sells for 1s 20c)
+local MIN_MULTIPLIER      = 0.90   -- Lower bound for BELOW-market rolls
+local MAX_MULTIPLIER      = 1.20   -- Upper bound for ABOVE-market rolls
+local BELOW_MARKET_CHANCE = 0.20   -- Chance to sell under 1.0, Chance broken out= 20% under vendor, 77% over, 2% lost item, 1% jackpot
 local FAILURE_CHANCE      = 0.02   -- Small chance player will lose the looted item. 
 local JACKPOT_CHANCE      = 0.01   -- Demand is high, you sell at the jackpot multiplier rate!
 local JACKPOT_MULTIPLIER  = 3      -- Multipler rate for Jackpot (i.e. vendor price 1 silver, player will get 3 silver). 
@@ -26,6 +28,7 @@ local ENABLE_CHAT         = true   -- false to turn off all flavor texts and onl
 local CHAT_DELAY_MS       = 1000   
 local SOUND_ID            = 0      
 
+--Green [Black Market]
 local FLAVOR_TEXTS = {
     "%s was fenced for %s.",
     "%s found a shady buyer and sold for %s.",
@@ -37,6 +40,7 @@ local FLAVOR_TEXTS = {
     "You sold %s on the black market for %s."
 }
 
+--Orange [Black Market]
 local LOWMARKET_TEXTS = {
     "The market's flooded... %s barely fetched %s.",
     "Buyers are tired of %s, so you settle for only %s.",
@@ -45,6 +49,7 @@ local LOWMARKET_TEXTS = {
     "Demand is low; you offloaded %s for only %s."
 }
 
+--Red [Black Market}
 local FAILURE_TEXTS = {
     "Your contact vanished with %s… no gold this time.",
     "The black market deal for %s went sour. You got nothing.",
@@ -53,6 +58,7 @@ local FAILURE_TEXTS = {
     "The guards raided the trade... %s confiscated, no payout."
 }
 
+--Gold/Yellow [Black Market]
 local JACKPOT_TEXTS = {
     "WHOA! A desperate collector paid a fortune: %s fetched %s!",
     "Incredible luck! You scored a massive haul selling %s for %s!",
@@ -112,13 +118,11 @@ local function SendTransactionInformation(player, item, count, finalPrice, multi
 
     if ENABLE_CHAT then
         if multiplier < 1.0 then
-            local msg = LOWMARKET_TEXTS[math.random(#LOWMARKET_TEXTS)]
-            -- Orange prefix, yellow body
+            local msg = LOWMARKET_TEXTS[math.random(#LOWMARKET_TEXTS)]            
             DelayedFeedback("|cffffa500[Black Market]|r |cffffff00" ..
                 string.format(msg, link, FormatMoney(finalPrice)) .. "|r")
         else
-            local msg = FLAVOR_TEXTS[math.random(#FLAVOR_TEXTS)]
-            -- Green prefix + yellow text
+            local msg = FLAVOR_TEXTS[math.random(#FLAVOR_TEXTS)]            
             DelayedFeedback("|cff20ff20[Black Market]|r |cffffff00" ..
                 string.format(msg, link, FormatMoney(finalPrice)) .. "|r")
         end
@@ -133,13 +137,26 @@ end
 local function OnLootItem(event, player, item, count)
     if not BLACKMARKET_ENABLED then return end
     if not item then return end
+
     if item:GetQuality() == 0 then
         local basePrice = item:GetSellPrice() * count
         if basePrice <= 0 then return end
-        local multiplier = RandomFloat(MIN_MULTIPLIER, MAX_MULTIPLIER)
+
+        local multiplier
+        if math.random() < BELOW_MARKET_CHANCE then
+            multiplier = RandomFloat(MIN_MULTIPLIER, 1.0)
+        else            
+            multiplier = RandomFloat(1.0, MAX_MULTIPLIER)
+        end
+
         local finalPrice = math.floor(basePrice * multiplier)
+        if finalPrice <= 0 then return end
+
         local payout = SendTransactionInformation(player, item, count, finalPrice, multiplier)
-        if payout > 0 then player:ModifyMoney(payout) end
+        if payout > 0 then
+            player:ModifyMoney(payout)
+        end
+
         player:RemoveItem(item:GetEntry(), count)
     end
 end
@@ -187,5 +204,3 @@ RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
 
 print("[JerCore's Black Market: Auto Sell VT] Loaded successfully. Status: ENABLED")
-
-
