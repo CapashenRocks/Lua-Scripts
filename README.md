@@ -21,7 +21,7 @@ Collection of JerCore lua scripts and addons (in the Misc folder). Most of these
 #### 3. LearnBlacksmithing- for War Within ![The War Within Logo](https://github.com/CapashenRocks/Lua-Scripts/blob/main/Misc/Art/tww.png)
 <ins>Details:</ins>
 Quick lua script that adds a command in game to learn blacksmithing and all ranks. It was written for a War Within repack that had some profession issues with Blacksmithing. It also correctly teaches BFA ranks based on player's faction. <br>
-Note: I have not tested this much as it was written for someone requesting it in a discord. Confirmed working<br><br>
+- Note: I have not tested this much as it was written for someone requesting it in a discord. Confirmed working<br><br>
  
 #### 4. NewPlayerStartSpells
  <ins>Details:</ins>
