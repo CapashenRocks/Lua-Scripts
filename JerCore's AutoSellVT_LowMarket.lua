@@ -18,8 +18,8 @@ Lastly, setting enable chat to false will remove the flavor texts and just show 
 
 local NPC_ID              = 97876  -- Change to any NPC, this is a custom Goblin NPC that may not exist on non-JerCore servers. NPC will allow you to turn it on or off
 local BLACKMARKET_ENABLED = true   -- false to turn off the script
-local MIN_MULTIPLIER      = 0.90   -- Lower bound for BELOW-market rolls
-local MAX_MULTIPLIER      = 1.20   -- Upper bound for ABOVE-market rolls
+local MIN_MULTIPLIER      = 0.90   -- Saturated Market= sales 1-10% under vendor pricing
+local MAX_MULTIPLIER      = 1.20   -- Sales 1.0-1.2x vendor pricing
 local BELOW_MARKET_CHANCE = 0.20   -- Chance to sell under 1.0, Chance broken out= 20% under vendor, 77% over, 2% lost item, 1% jackpot
 local FAILURE_CHANCE      = 0.02   -- Small chance player will lose the looted item. 
 local JACKPOT_CHANCE      = 0.01   -- Demand is high, you sell at the jackpot multiplier rate!
@@ -204,3 +204,4 @@ RegisterCreatureGossipEvent(NPC_ID, 1, OnGossipHello)
 RegisterCreatureGossipEvent(NPC_ID, 2, OnGossipSelect)
 
 print("[JerCore's Black Market: Auto Sell VT] Loaded successfully. Status: ENABLED")
+
