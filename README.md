@@ -14,9 +14,9 @@ Collection of JerCore lua scripts and addons (in the Misc folder). Most of these
   
   <br><i>Note- Tested and working on 3.3.5 Azerothcore as well as some modern repacks- 10.2.7 and 11.2.0. Only repack it had an issue with so far in testing was Ashen Order that constantly crashed on looting.</i><br><br>
 
-#### 2b. AutoSellVT- ALT Version
+#### 2b. JerCore's AutoSellVT_LowMarket- ALT Version
  <ins>Details:</ins>
- This version lowers the sale multiplier rates with a possibility to sell under vendor rate for those that enjoy emersion and a more real feel where sometimes these items would be saturated in the market and sell for a lower price. Just a fun alternative for some that like RP.<br><br>
+ This version lowers the sale multiplier rates with a possibility to sell under vendor rate for those that enjoy emersion and a more realistic feel where sometimes these items would be saturated in the market and sell for a lower price. Just a fun alternative for some that like RP.<br><br>
 
 #### 3. LearnBlacksmithing- for War Within ![The War Within Logo](https://github.com/CapashenRocks/Lua-Scripts/blob/main/Misc/Art/tww.png)
 <ins>Details:</ins>
