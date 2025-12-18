@@ -72,6 +72,13 @@ Racemask
 512- Blood Elf
 1024- Draenei
 Racemask All=> 2047, no goblin=1791. Alliance=1101, Horde=690 (946 with goblin)
+
+JerCore 0.6.2
+Alliance= 1357
+Horde= 2738
+
+JerCore 0.6.3
+Alliance= 5453
 ~~~~~
 2048- Fel Orc
 4096- Naga
