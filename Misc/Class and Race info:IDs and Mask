@@ -76,9 +76,11 @@ Racemask All=> 2047, no goblin=1791. Alliance=1101, Horde=690 (946 with goblin)
 JerCore 0.6.2
 Alliance= 1357
 Horde= 2738
+All= 4095
 
-JerCore 0.6.3
-Alliance= 5453
+JerCore 0.7.0
+Alliance= 9549
+All= 12287
 ~~~~~
 2048- Fel Orc
 4096- Naga
